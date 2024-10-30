@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeQuiz</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="game_body">
+    <form class="banner bgBannerInicial" action="javascript:void(0);"> <!-- Evita o comportamento padrão de recarregar a página -->
+        <h1 class="logo">CodeQuiz</h1>
+        <div class="menu">
+            <h3>Dificuldade: </h3>
+            <select class="dificuldade" id="dificuldade">
+                <option value="1">Jogador Iniciante</option>
+                <option value="2">Jogador Intermediario</option>
+                <option value="3">Jogador Avançado</option>
+            </select>
+        </div>
+        <button class="botaoJogar" id="botaoJogar" type="button">Jogar</button>
+        <div class="info">Mais informações</div>
+        <span class="hoverInfo">O jogo consiste em responder perguntas sobre logica de programação e linguagem natural</span> 
+        <img src="img/cesuca.png" class="logoCesuca">
+    </form>
+
+    <script>
+        document.getElementById("botaoJogar").addEventListener("click", function() {
+            window.location.href = "jogo.html"; // Redireciona para a página jogo.html
+        });
+    </script>
+</body>
+</html>

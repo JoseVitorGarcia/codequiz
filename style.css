@@ -1,0 +1,462 @@
+/* Estilo básico para o jogo de perguntas e respostas */
+
+/* Estilos globais que serão aplicados a todos os elementos. */
+* {
+  box-sizing: border-box;
+  font-family: "Ubuntu Mono", monospace;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+footer{
+  width: 60%;
+}
+.banner {
+  display: flex;
+  border: 8px solid #fff;
+  border-radius: 10px;
+  height: 600px;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Adiciona position relative */
+  flex-direction: column;
+}
+
+.game_body {
+  background-color: #0a0a32;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  min-height: 100vh;
+  
+  width: 100%;
+  padding: 5%;
+ 
+}
+
+.footer_wrapper{
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nomes-lista {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Cria duas colunas de igual largura */
+  row-gap: 15px; /* Espaçamento vertical entre os itens */
+  column-gap: 15px; /* Espaçamento horizontal entre as colunas */
+}
+
+.footer-text{
+  color: #ffffff;
+  width: 50%;
+}
+
+.quizLabel {
+  font-size: 30px;
+}
+
+.questionLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute; /* Permite posicionar a label em relação à .banner */
+  top: -30px; /* Ajuste para que a label fique acima da borda */
+  left: 50%; /* Move para o centro horizontalmente */
+  transform: translateX(-50%); /* Corrige a posição para ficar centralizado */
+  background-color: rgba(
+    0,
+    128,
+    128,
+    1
+  ); /* Azul esverdeado com transparência */
+  color: white; /* Cor do texto */
+  padding: 5px 10px; /* Espaço ao redor do texto */
+  border-radius: 15px; /* Borda arredondada opcional */
+  font-family: "Ubuntu Mono", monospace; /* Fonte opcional */
+  z-index: 1; /* Garante que a label esteja acima da borda */
+  width: 150px;
+  height: 50px;
+}
+
+.desativado {
+  pointer-events: none;
+}
+
+/* Container da pergunta */
+.questionContent {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+/* Estilo do ícone da pergunta */
+.questionIcon {
+  background-color: #ffc800;
+  color: #000000;
+  font-weight: bold;
+  font-size: 1.2em;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Estilo do texto da pergunta */
+.questionText {
+  
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: left;
+}
+
+/* Container das opções */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+  width: 80%;
+}
+
+/* Estilo dos botões de opção */
+.option {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.option:hover {
+  background-color: #f0f0f0;
+}
+
+body {
+  background-color: #848891;
+
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  background-color: #848891;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  border: 2px solid rgb(29, 29, 88);
+  box-shadow: 0px 0px 10px black;
+  border-radius: 5px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#placar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px 0;
+  color: rgb(1, 17, 161);
+}
+.jogador-1 {
+  border: 2px solid rgb(0, 0, 156);
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 5px 5px 12px rgb(3, 10, 70);
+}
+.jogador-2 {
+  border: 2px solid rgb(0, 0, 156);
+  border-radius: 8px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 5px 5px 12px rgb(3, 10, 70);
+}
+
+.placar p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin: 64px 0;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  min-width: 800px;
+  padding: 24px;
+}
+
+.card-titulo {
+  font-size: 24px;
+  padding-bottom: 24px;
+  text-align: center;
+}
+
+.alternativas-lista {
+  display: flex;
+  flex-direction: column;
+  
+  margin-top: 15px;
+ 
+  width: 80%;
+  padding: 10px;
+
+}
+
+.alternativa {
+
+  background-color: #ffffff;
+  color: #000000;
+  
+  padding: 10px;
+  min-height: 50px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 10px;
+}
+
+.alternativa-texto {
+  display: block;
+  width: 100%;
+}
+
+.alternativa-correta {
+  border: 2px solid #4bb543; /* Borda verde */
+}
+
+.alternativa-incorreta {
+  border: 2px solid #ff9494;
+}
+
+.texto-correto {
+  color: #4bb543;
+  background-color: white;
+  padding: 10px;
+  border: 4px solid rgb(18, 77, 18);
+  width: 15%;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.texto-incorreto {
+  color: #ff9494;
+  background-color: white;
+  border: 4px solid rgb(134, 39, 39);
+  padding: 8px;
+  width: 18%;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.resposta_wrapper {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.resposta-container {
+  padding-top: 24px;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.resposta-mark {
+  display: block;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.proxima-pergunta-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.botao-responder {
+  background-color: #fdfafa;
+  border: none;
+  border-radius: 5px;
+  color: #0431ad;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+#pergunta {
+  color: rgb(250, 250, 250);
+  text-align: center;
+  font-size: 20px;
+}
+.jogador-vez {
+  border-bottom: 2px solid white;
+  padding: 10px;
+}
+#card-titulo {
+  color: white;
+  padding: 30px;
+}
+.card-vencedor {
+  display: none;
+  justify-content: center;
+  text-align: center;
+  margin-top: -40%;
+}
+/* Card de finalização */
+#ranking-card {
+  display: none; /* Inicialmente oculto */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 350px;
+  background-color: white;
+  border-radius: 15px;
+  border: 2px solid yellow;
+  color: #0431ad;
+  text-align: center;
+  padding: 20px;
+  z-index: 10; /* Para garantir que ele fique à frente do conteúdo */
+}
+
+#ranking-list {
+  color: rgb(0, 190, 0);
+  margin-bottom: 30px;
+}
+.peixe-1 {
+  display: flex;
+  justify-content: center;
+}
+.peixe-1 img {
+  width: 7%;
+  transform: translateY(0px);
+  animation: float 5s ease-in-out infinite;
+}
+.peixes {
+  display: flex;
+  justify-content: space-between;
+  padding: 5%;
+}
+.peixes img {
+  width: 9%;
+  transform: translateY(0px);
+  animation: float 5s ease-in-out infinite;
+}
+
+input[type="radio"] {
+  opacity: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.oculto-ao-finalizar {
+  display: none;
+}
+
+/* Css referente à página inicial */
+
+.bgBannerInicial{
+  background-image: linear-gradient(to right bottom,#0a0a32 20%,#b7e1e43b 80% ); 
+}
+
+.logo{
+  padding-top:5%;
+  margin-top: 0 !important;
+  font-size: 125px;
+  color:white;
+  font-weight: bold
+}
+
+.menu{
+  color:white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top:10%
+}
+
+.botaoJogar{
+  color:white;
+  background-color:#119da4;
+  border:0;
+  border-radius: 10px;
+  width:40%;
+  height:10%;
+  font-size:35px;
+  margin:20px
+}
+
+.botaoJogar:hover{
+  cursor: pointer;
+}
+
+.dificuldade{
+  margin-left:10px;
+  padding:5px;
+  text-align: center;
+}
+
+.logoCesuca{
+  margin:5%;
+  width:200px
+}
+
+.info{
+  color:white;
+  cursor:help
+}
+
+.info:hover + .hoverInfo{
+  display:block;
+}
+
+.hoverInfo{
+  padding:15px;
+  margin-top:5%;
+  display:none;
+  position:absolute;background-color:white;
+  height:30%;
+  width:60%;
+  text-align: center;
+  border-radius: 15px;
+  text-align: justify;
+}
+

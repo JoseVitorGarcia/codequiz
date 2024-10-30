@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeQuiz</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="game_body">
+    <div class="banner">
+      <div id="card">
+        <div class="questionLabel">
+          <div class="quizLabel">QUIZ</div>
+        </div>
+        <div class="questionContent">
+          <div id="card-titulo" class="questionIcon"></div>
+          <p id="card-titulo-text" class="questionText"></p>
+        </div>
+        <ul id="alternativas-lista"></ul>
+        <div class="resposta_wrapper">
+          <div id="resposta-container"></div>
+        </div>
+
+        <div id="card-vencedor" class="card-vencedor">
+          <div id="ranking-card" >
+          
+            <ul id="ranking-list">
+              <!-- Aqui você pode adicionar os itens do ranking -->
+            </ul>
+            <h3>
+              Parabéns por chegar até aqui, jogador. Para jogar novamente, atualize o site com o botão F5
+              do teclado ou indo ate a rodinha de atualizar o site.
+            </h3>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer_wrapper">
+        <img src="img/cesuca.png" alt="cesuca"/>
+        <div class="autores">
+          <ul class="nomes-lista">
+            <li class="footer-text">José Vitor</li>
+            <li class="footer-text">Julia Leal</li>
+            <li class="footer-text">Marco Aurélio</li>
+            <li class="footer-text">Tainã Trilip</li>
+            <li class="footer-text">Gabriel Oliveira</li>
+            <li class="footer-text">Gustavo Lessa</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <script src="card-script.js"></script>
+</html>

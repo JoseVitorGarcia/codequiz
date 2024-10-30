@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeQuiz</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Programmer Quiz!!!</h1>
+    </header>
+    
+    <div id="placar">
+        <p class="jogador-1">Jogador 1: <span id="pontos-jogador-1">0</span> pontos</p>
+        <p class="jogador-2">Jogador 2: <span id="pontos-jogador-2">0</span> pontos</p>
+    </div>
+
+    <div id="pergunta">
+        <p id="mensagem" class="jogador-vez">Jogador 1, é a sua vez!</p>
+        <h2 id="card-titulo" class="card-titulo"></h2>
+        <ul id="alternativas-lista" class="alternativas-lista"></ul>
+        <div id="resposta-container" class="resposta-container"></div>
+    </div>
+  
+    <!-- Card para o vencedor da jogada-->
+    <div class="card-vencedor">
+        <div id="ranking-card" style="display: none;">
+            <h2>Ranking de Vencedores</h2>
+            <ul id="ranking-list">
+                <!-- Aqui você pode adicionar os itens do ranking -->
+                
+            </ul>
+            <h3>
+                Parabéns Campeão.
+                Para jogar novamente, atualize o site com o F5 do teclado ou Indo ate a rodinha de atualziar o site.
+            </h3>
+            
+        </div>
+    </div>
+
+    <script src="card-script.js"></script>
+</body>
+
+</html>
