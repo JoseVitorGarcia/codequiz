@@ -11,8 +11,6 @@ const pontosJogador1Element = document.getElementById("pontos-jogador-1");
 const pontosJogador2Element = document.getElementById("pontos-jogador-2");
 const cardelemento = document.getElementById("vencedor-card");
 
-
-
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -27,8 +25,7 @@ function shuffleArray(array) {
 
 const perguntas = [
   {
-    titulo:
-      "O que é um algoritmo?",
+    titulo: "O que é um algoritmo?",
     alternativas: [
       {
         id: 1,
@@ -37,29 +34,53 @@ const perguntas = [
       },
       {
         id: 2,
-        titulo: "Uma linguagem de programação",
-        correta: false,
-      },
-      {
-        id: 3,
         titulo: "Um conjunto de instruções para resolver um problema",
         correta: true,
       },
       {
+        id: 3,
+        titulo: "Uma linguagem de programação",
+        correta: false,
+      },
+      {
         id: 4,
-        titulo: "Uma rede social",
+        titulo: "Um filme",
         correta: false,
       },
     ],
   },
   {
     titulo:
-      "O que é uma estrutura condicional?",
+      "Qual operador lógico retorna True apenas se ambas as condições forem verdadeiras?",
     alternativas: [
       {
         id: 1,
-        titulo:
-          "Uma variável",
+        titulo: "OR",
+        correta: false,
+      },
+      {
+        id: 2,
+        titulo: "AND",
+        correta: true,
+      },
+      {
+        id: 3,
+        titulo: "NOT",
+        correta: false,
+      },
+      {
+        id: 4,
+        titulo: "XOR",
+        correta: false,
+      },
+    ],
+  },
+  {
+    titulo: "O que é uma estrutura condicional?",
+    alternativas: [
+      {
+        id: 1,
+        titulo: "Uma variável",
         correta: false,
       },
       {
@@ -80,28 +101,77 @@ const perguntas = [
     ],
   },
   {
-    titulo:
-      "Qual a função do operador != em lógica de programação?",
+    titulo: "Qual desses operadores é usado para negar uma condição?",
     alternativas: [
       {
         id: 1,
-        titulo:
-          "Verifica se dois valores são iguais",
+        titulo: "AND",
         correta: false,
       },
       {
         id: 2,
-        titulo: "Verifica se dois valores são diferentes",
+        titulo: "OR",
+        correta: false,
+      },
+      {
+        id: 3,
+        titulo: "NOT",
+        correta: true,
+      },
+      {
+        id: 4,
+        titulo: "XOR",
+        correta: false,
+      },
+    ],
+  },
+  {
+    titulo:
+      "Qual das alternativas descreve um laço while (enquanto) corretamente?",
+    alternativas: [
+      {
+        id: 1,
+        titulo: "Executa o código apenas uma vez",
+        correta: false,
+      },
+      {
+        id: 2,
+        titulo: "Executa o código enquanto a condição for verdadeira",
         correta: true,
       },
       {
         id: 3,
-        titulo: "Atribui um valor a uma variável",
+        titulo: "Executa o código uma quantidade fixa de vezes",
         correta: false,
       },
       {
         id: 4,
-        titulo: "Compara dois valores usando multiplicação",
+        titulo: "Sempre termina após a primeira execução",
+        correta: false,
+      },
+    ],
+  },
+  {
+    titulo: "O que é uma variável?",
+    alternativas: [
+      {
+        id: 1,
+        titulo: "Um tipo de laço de repetição",
+        correta: false,
+      },
+      {
+        id: 2,
+        titulo: "Um valor que muda durante a execução de um programa",
+        correta: true,
+      },
+      {
+        id: 3,
+        titulo: "Um comando que imprime na tela",
+        correta: false,
+      },
+      {
+        id: 4,
+        titulo: "Um erro no código",
         correta: false,
       },
     ],
@@ -116,22 +186,24 @@ let perguntaAtual = perguntas[indicePerguntaAtual]; // Dados da pergunta atual
 let pontosObtidos = 0;
 
 function verificarFimDoJogo() {
- 
   const rankingCard = document.getElementById("ranking-card");
   const rankingList = document.getElementById("ranking-list");
   const cardVencedor = document.getElementById("card-vencedor");
 
-
   cardElement.classList.add("oculto-ao-finalizar");
   cardTituloTextElement.classList.add("oculto-ao-finalizar");
-  
 
   const vencedorItem = document.createElement("h3");
-  vencedorItem.textContent = `Você conquistou ${pontosObtidos} pontos de ${perguntas.length}.`;
+  vencedorItem.textContent = `Jogador conquistou ${pontosObtidos} pontos de ${perguntas.length}.`;
   rankingList.appendChild(vencedorItem);
   cardVencedor.style.display = "block";
-  rankingCard.style.display = "block"; // Exibe o card de ranking de vencedor
+
   cardElement.style.display = "block"; // Oculta o card de perguntas
+
+  rankingCard.style.display = "flex";
+  rankingCard.style.flexDirection = "column";
+  rankingCard.style.alignItems = "center";
+  rankingCard.style.justifyContent = "center";
 
   // Desabilita o jogo para que o usuário não continue interagindo
   const alternativasRadio = document.querySelectorAll(
@@ -154,9 +226,9 @@ function avancarPergunta() {
   });
 
   indicePerguntaAtual++; // Incrementa o índice da pergunta atual
-  
+
   if (indicePerguntaAtual + 1 > perguntas.length) {
-   
+    // Fim do jogo
 
     verificarFimDoJogo();
   }
@@ -169,29 +241,27 @@ function avancarPergunta() {
  * Diferencia visualmente as alternativas incorretas da correta.
  */
 function exibeAlternativasResultado() {
- // Bloquear cliques adicionais
+  // Bloquear cliques adicionais
 
-
-   Array.from(alternativasListaElement.children).forEach(
+  Array.from(alternativasListaElement.children).forEach(
     (alternativaElement, indice) => {
       const inputElement = alternativaElement.children[0];
-    
+
       inputElement.disabled = true;
 
       alternativaElement.classList.remove("alternativa-base");
 
       const alternativaAtual = perguntaAtual.alternativas[indice];
-     
+
       if (inputElement.checked && alternativaAtual.correta) {
         alternativaElement.classList.add("alternativa-correta");
-       
+
         pontosObtidos++;
       } else if (inputElement.checked && !alternativaAtual.correta) {
-        
         alternativaElement.classList.add("alternativa-incorreta");
       }
     }
-  ); 
+  );
 }
 
 /**
@@ -204,7 +274,6 @@ function verificaAlternativa(alternativa) {
   });
 
   if (alternativa.correta) {
-    
     alternativa.element.classList.add("alternativa-correta");
     pontosObtidos++;
   } else {

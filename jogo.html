@@ -15,7 +15,7 @@
     <div class="banner">
       <div id="card">
         <div class="questionLabel">
-          <div class="quizLabel">QUIZ</div>
+          <div class="quizLabel">CodeQuiz</div>
         </div>
         <div class="questionContent">
           <div id="card-titulo" class="questionIcon"></div>
@@ -30,13 +30,12 @@
           <div id="ranking-card" >
           
             <ul id="ranking-list">
-              <!-- Aqui você pode adicionar os itens do ranking -->
+              
             </ul>
             <h3>
-              Parabéns por chegar até aqui, jogador. Para jogar novamente, atualize o site com o botão F5
-              do teclado ou indo ate a rodinha de atualizar o site.
+              Parabéns por chegar até aqui, jogador. Para jogar novamente, clique no botão abaixo.
             </h3>
-          
+            <button class="botaoJogarNovamente" id="botaoJogarNovamente" type="button">Jogar novamente</button>
           </div>
         </div>
       </div>
@@ -44,7 +43,7 @@
 
     <footer>
       <div class="footer_wrapper">
-        <img src="img/cesuca.png" alt="cesuca"/>
+        <img src="/img/cesuca.png" alt="cesuca" />
         <div class="autores">
           <ul class="nomes-lista">
             <li class="footer-text">José Vitor</li>
@@ -57,6 +56,11 @@
         </div>
       </div>
     </footer>
+    <script>
+      document.getElementById("botaoJogarNovamente").addEventListener("click", function() {
+          window.location.href = "jogo.html"; // Redireciona para a página jogo.html
+      });
+  </script>
   </body>
 
   <script src="card-script.js"></script>
